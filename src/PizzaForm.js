@@ -210,6 +210,7 @@ return (<form onSubmit={onSubmit}>
         <input
             type="checkbox"
             name="pepperoni"
+            id="pepperoni"
             checked={orderValues.pepperoni}
             onChange={onChange}/>
 
@@ -218,6 +219,7 @@ return (<form onSubmit={onSubmit}>
         <input
             type="checkbox"
             name="pineapple"
+            id="pineapple"
             checked={orderValues.pineapple}
             onChange={onChange}/>
 </label>

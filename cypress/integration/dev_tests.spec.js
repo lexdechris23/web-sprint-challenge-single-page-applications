@@ -1,24 +1,27 @@
+
+
+
 describe('Making Pizza Form', () => {
+
+    const pineappleBox = () => cy.get('#pineapple')
+    const pepperoniBox = () => cy.get('#pepperoni')
+
     it('Name Input', () => {
-        cy.visit("http://localhost:3000/pizza")
+        cy.visit("http://localhost:3000/Form")
         cy.get('form input:first').type('testing.......')
         cy.get('form input:first').should('have.value', 'testing.......')
     })
-    it('Multiple Toppings Check', () => {
-        cy.visit("http://localhost:3000/pizza")
-        cy.get('form input:nth-of-type(4)').check()
-        cy.get('form input:nth-of-type(4)').should('be.checked')
-        cy.get('form input:nth-of-type(5)').check()
-        cy.get('form input:nth-of-type(5)').should('be.checked')
-        cy.get('form input:nth-of-type(6)').check()
-        cy.get('form input:nth-of-type(6)').should('be.checked')
-        cy.get('form input:nth-of-type(7)').check()
-        cy.get('form input:nth-of-type(7)').should('be.checked')
+
+    it('allows user to select multiple toppings', () => {
+
+        pineappleBox().click()
+        pepperoniBox().click()
     })
+    
     it('Ability To Submit Form', () => {
-        cy.visit("http://localhost:3000/pizza")
+        cy.visit("http://localhost:3000/Form")
         cy.get('form input:first').type('John Doe')
-        cy.contains('Submit').click()
-        cy.url().should('include', "/confirmation")
+        cy.contains('Place').click()
+        
     })
 }) 
